@@ -1,0 +1,69 @@
+--
+-- Database: `fitestab`
+--
+CREATE DATABASE IF NOT EXISTS `fitestab` DEFAULT CHARACTER SET UTF8 COLLATE utf8_general_ci;
+USE `fitestab`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `idCategoria` int(4) NOT NULL,
+  `nome` varchar(40) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estabelecimento`
+--
+
+CREATE TABLE `estabelecimento` (
+  `idEstabelecimento` int(4) NOT NULL,
+  `cnpj` varchar(18) COLLATE latin1_general_ci NOT NULL,
+  `razaoSocial` varchar(80) COLLATE latin1_general_ci NOT NULL,
+  `nomeFantasia` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `email` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `endereco` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `cidade` varchar(40) COLLATE latin1_general_ci DEFAULT NULL,
+  `estado` varchar(2) COLLATE latin1_general_ci DEFAULT NULL,
+  `telefone` varchar(15) COLLATE latin1_general_ci DEFAULT NULL,
+  `dataCadastro` date NOT NULL,
+  `idCategoria` int(4) DEFAULT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`idCategoria`);
+
+--
+-- Indexes for table `estabelecimento`
+--
+ALTER TABLE `estabelecimento`
+  ADD PRIMARY KEY (`idEstabelecimento`),
+  ADD UNIQUE KEY `cnpj` (`cnpj`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `idCategoria` int(4) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `estabelecimento`
+--
+ALTER TABLE `estabelecimento`
+  MODIFY `idEstabelecimento` int(4) NOT NULL AUTO_INCREMENT;
